@@ -95,6 +95,7 @@ class SmartCarousel extends Component {
     this.setState({ nextItem: newitem });
     Animated.spring(this.position, {
       toValue: { x: distance, y: 0 },
+      useNativeDriver: false,
     }).start(() => this._onSwipeComplete(newitem));
   }
 
@@ -109,7 +110,8 @@ class SmartCarousel extends Component {
   //
   _resetPosition() {
     Animated.spring(this.position, {
-      toValue: { x: 0, y: 0 }
+      toValue: { x: 0, y: 0 },
+      useNativeDriver: false,
     }).start();
   }
 
